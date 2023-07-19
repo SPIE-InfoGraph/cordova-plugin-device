@@ -44,7 +44,8 @@ function Device () {
     this.isVirtual = null;
     this.serial = null;
     this.isiOSAppOnMac = null;
-
+    this.name = null;
+    this.platformName = null;
     var me = this;
 
     channel.onCordovaReady.subscribe(function () {
@@ -59,7 +60,9 @@ function Device () {
                 me.uuid = info.uuid;
                 me.cordova = buildLabel;
                 me.model = info.model;
+                me.name = info.name;
                 me.isVirtual = info.isVirtual;
+                me.platformName = info.platformName;
                 // isiOSAppOnMac is iOS specific. If defined, it will be appended.
                 if (info.isiOSAppOnMac !== undefined) {
                     me.isiOSAppOnMac = info.isiOSAppOnMac;
